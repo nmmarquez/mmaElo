@@ -58,7 +58,7 @@ eliFights <- subset (uniFights, player.1 %in% eli & player.2 %in% eli)
 fights155 <- subset (uniFights, player.1 %in% one55 & player.2 %in% one55)
 
 ### linHierarchy go!!!
-fightInt <- intTableConv (eliFights, format = '%Y-%m-%d')
+fightInt <- intTableConv (fights155, format = '%Y-%m-%d')
 
 eloF <- eloTable (fightInt)
 extractScores (eloF) [1:20,]
@@ -68,7 +68,7 @@ mycol <- c('red', 'green', 'black', 'blue', 'orange', 'pink', 'purple',
 
 plot (eloF, players = extractScores (eloF, tObj = Sys.time()) [1:7,'player'],
       col = mycol, lty = 6, lwd = 3, ylab = 'Elo Rating', xlab = 'Year', 
-      legend = FALSE, main ='Current MMA Top 7 Lightweight Elo Rantings by Elo')
+      legend = FALSE, main ='Top 7 Elo Ratings for Lightweight MMA Fighters')
 
 legend ('topleft', paste (extractScores (eloF) [1:7, 'player'],
                           as.character (extractScores (eloF) [1:7, 'score'])),
@@ -81,7 +81,7 @@ ufc7 <- c('Anthony Pettis','Benson Henderson','Gilbert Melendez','Josh Thomson',
 ufc7Scr <- extractScores (eloF, players=ufc7)
 
 plot (eloF, players = ufc7,col = mycol, lty = 6,lwd = 3, ylab = 'Elo Rating',
-      xlab = 'Year',legend = FALSE, main ='Top UFC MMA Lieghtweight Elo Rating')
+      xlab = 'Year',legend = FALSE, main ='Top 7 UFC MMA Lightweights Elo Rating')
 
 
 legend ('topleft', paste (ufc7,
